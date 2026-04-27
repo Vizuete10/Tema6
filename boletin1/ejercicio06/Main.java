@@ -10,7 +10,7 @@ public class Main {
         List<Integer> numeros = new ArrayList<>();
 
         // 1. LECTURA: Leer números de un archivo y almacenarlos en la lista
-        try (BufferedReader br = new BufferedReader(new FileReader("boletin1/ejercicio06/numeros"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("boletin1/ejercicio06/numeros.txt"))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 linea = linea.trim(); // Limpiamos espacios
@@ -34,7 +34,7 @@ public class Main {
         Collections.sort(numeros);
 
         // 3. ESCRITURA: Guardar los números ordenados en un fichero distinto
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("boletin1/ejercicio06/numerosOrdenados"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("boletin1/ejercicio06/numerosOrdenados.txt"))) {
             for (int n : numeros) {
                 bw.write(String.valueOf(n));
                 bw.newLine();

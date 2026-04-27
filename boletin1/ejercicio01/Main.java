@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        try (Scanner sc = new Scanner(new FileReader("boletin1/ejercicio01/NumeroReales"))) {
+        try (Scanner sc = new Scanner(new FileReader("boletin1/ejercicio01/NumeroReales.txt"))) {
         	sc.useLocale(java.util.Locale.US);
 
             double suma = 0;

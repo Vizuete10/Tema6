@@ -6,7 +6,7 @@ import java.util.*;
 public class Main {
 
 	static final int MAX_CONTACTOS = 20;
-	static final String RUTA_ARCHIVO = "agenda.txt";
+	static final String RUTA_ARCHIVO = "boletin1/ejercicio07/agenda.txt";
 
 	public static void main(String[] args) {
 

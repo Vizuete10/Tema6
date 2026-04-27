@@ -9,7 +9,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("boletin1/ejercicio04/cadenas"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("boletin1/ejercicio04/cadenas.txt"))) {
 
             System.out.println("Introduce cadenas de texto ('fin' para terminar):");
 
