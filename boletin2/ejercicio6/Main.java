@@ -3,59 +3,56 @@ package ejercicio6;
 import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
-        String archivo = "boletin2/ejercicio6/deportistas.txt";
+	public static void main(String[] args) {
+		String archivo = "boletin2/ejercicio6/deportistas.txt";
 
-        // Variables para guardar los récords y quién los tiene
-        int maxEdad = -1;
-        String nombreMaxEdad = "";
+		int maxEdad = -1;
+		String nombreMaxEdad = "";
 
-        double maxPeso = -1;
-        String nombreMaxPeso = "";
+		double maxPeso = -1;
+		String nombreMaxPeso = "";
 
-        double maxEstatura = -1;
-        String nombreMaxEstatura = "";
+		double maxEstatura = -1;
+		String nombreMaxEstatura = "";
 
-        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
-            String linea = br.readLine(); 
+		try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+			String linea = br.readLine();
 
-            while ((linea = br.readLine()) != null) {
-                // Separamos los datos por el punto y coma
-                String[] datos = linea.split(";");
+			while ((linea = br.readLine()) != null) {
 
-                if (datos.length == 4) {
-                    String nombre = datos[0];
-                    int edad = Integer.parseInt(datos[1].trim());
-                    
-                    // Cambiamos la coma por punto para poder pasarlo a Double
-                    double peso = Double.parseDouble(datos[2].replace(",", ".").trim());
-                    double estatura = Double.parseDouble(datos[3].replace(",", ".").trim());
+				String[] datos = linea.split(";");
 
-                    // Comprobamos si bate algún récord
-                    if (edad > maxEdad) {
-                        maxEdad = edad;
-                        nombreMaxEdad = nombre;
-                    }
-                    if (peso > maxPeso) {
-                        maxPeso = peso;
-                        nombreMaxPeso = nombre;
-                    }
-                    if (estatura > maxEstatura) {
-                        maxEstatura = estatura;
-                        nombreMaxEstatura = nombre;
-                    }
-                }
-            }
+				if (datos.length == 4) {
+					String nombre = datos[0];
+					int edad = Integer.parseInt(datos[1].trim());
 
-            System.out.println("--- RESULTADOS ---");
-            System.out.println("Deportista de mayor edad: " + nombreMaxEdad + " (" + maxEdad + " años)");
-            System.out.println("Deportista de mayor peso: " + nombreMaxPeso + " (" + maxPeso + " kg)");
-            System.out.println("Deportista de mayor estatura: " + nombreMaxEstatura + " (" + maxEstatura + " m)");
+					double peso = Double.parseDouble(datos[2].replace(",", ".").trim());
+					double estatura = Double.parseDouble(datos[3].replace(",", ".").trim());
 
-        } catch (IOException e) {
-            System.out.println("Error al leer el fichero: " + e.getMessage());
-        } catch (NumberFormatException e) {
-            System.out.println("Error en el formato de los números del fichero.");
-        }
-    }
+					if (edad > maxEdad) {
+						maxEdad = edad;
+						nombreMaxEdad = nombre;
+					}
+					if (peso > maxPeso) {
+						maxPeso = peso;
+						nombreMaxPeso = nombre;
+					}
+					if (estatura > maxEstatura) {
+						maxEstatura = estatura;
+						nombreMaxEstatura = nombre;
+					}
+				}
+			}
+
+			System.out.println("--- RESULTADOS ---");
+			System.out.println("Deportista de mayor edad: " + nombreMaxEdad + " (" + maxEdad + " años)");
+			System.out.println("Deportista de mayor peso: " + nombreMaxPeso + " (" + maxPeso + " kg)");
+			System.out.println("Deportista de mayor estatura: " + nombreMaxEstatura + " (" + maxEstatura + " m)");
+
+		} catch (IOException e) {
+			System.out.println("Error al leer el fichero: " + e.getMessage());
+		} catch (NumberFormatException e) {
+			System.out.println("Error en el formato de los números del fichero.");
+		}
+	}
 }
